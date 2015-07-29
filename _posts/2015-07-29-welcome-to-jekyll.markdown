@@ -4,7 +4,7 @@ title:  "Welcome to Jekyll!?!"
 date:   2015-07-29 17:00:50
 categories: blog github jekyll
 ---
-So after a lot of faffing about trying to decide what blog engine to use, I decide to use one that is hosted and supported by [github pages][github-pages] natively rather than trying to host static HTML in Azure/Amazon/private server/whatever and have the overhead of generating it. [Jekyll][jekyll] it is then.
+So after a lot of faffing about trying to decide what blog engine to use, I decide to use one that is hosted and supported by [github pages][github-pages] natively rather than trying to host markdown or bbcode in Azure/Amazon/private server/whatever and have the overhead of generating it. [Jekyll][jekyll] it is then.
 
 The process of installing [Jekyll][jekyll] was fairly painless even on windows, assuming you have [chocolatey][chocolatey] installed:
 
