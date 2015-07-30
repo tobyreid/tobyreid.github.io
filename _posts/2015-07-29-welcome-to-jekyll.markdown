@@ -14,20 +14,28 @@ cinst ruby2.devkit
 gem install bundler
 {% endhighlight %}
 
-Then navigate to your repo where you'd like to create, create a `GemFile.` (no extension) with the following content:
+.. then navigate to your repo where you'd like to create, create a `GemFile.` (no extension) with the following content:
 
 {% highlight bat%}
 source 'https://rubygems.org'
 gem 'github-pages'
 {% endhighlight%}
 
-Now either you can go ahead and start building everything from scratch, or you can run:
+.. now either you can go ahead and start building everything from scratch, or you can run:
 
 {% highlight bat%}
 jekyll new .
 {% endhighlight%}
 
-Which should populate your directory with a site with a really basic layout and a couple of sample pages to get you started.
+.. which should populate your directory with a site with a really basic layout and a couple of sample pages to get you started.
+
+Now just run:
+
+{% highlight bat%}
+bundle exec jekyll serve
+{% endhighlight%}
+
+.. and it should be a case of "Bang, done.".
 
 Don't forget to commit the `.gitignore` before you commit all the rest of your files, or you'll end up with `_site` subdirectory committed, which you don't need.
 
