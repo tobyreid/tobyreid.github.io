@@ -1,6 +1,6 @@
 # Site settings
 title:       Technical Petrichor
-email:       ""
+email:       
 author:      Toby Reid
 description: "alias yolo='git commit -am 'DEAL WITH IT' && git push -f origin master'"
 baseurl:     ""
