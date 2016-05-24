@@ -1,25 +1,119 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Setting up Jekyll on Windows with BrowserSync"
 date:   2016-05-23 10:06:18 +0100
-categories: jekyll update
+categories: jekyll update windows browsersync
+summary:    Straight to the point - you need Jekyll for all your static site needs. I've written a quick guide to get up and running fast.
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+I assume you have [Chocolately Nuget][choco] installed on your machine.
 
-Jekyll also offers powerful support for code snippets:
+From an administrative command prompt run the following:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+~~~shell
+choco install nodejs
+choco install ruby -version 2.2.4 
+choco install ruby2.devkit
+~~~
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+At time of writing ruby version 2.2.4 works, later versions do not; otherwise bundle install fails later on.
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Next, edit `C:\tools\DevKit2\dk.rb` and change the REG_KEYS to look like the following snippet:
+
+~~~shell
+REG_KEYS = [
+    'Software\RubyInstaller\MRI',
+    'Software\RubyInstaller\Rubinius',
+    'Software\Wow6432Node\RubyInstaller\MRI'
+]
+~~~
+
+Now relaunch the administrative prompt, goto `C:\tools\DevKit2` and run:
+
+~~~shell
+run ruby dk.rb init
+run ruby dk.rb install
+~~~
+
+Now relaunch the administrative prompt and run:
+
+~~~shell
+gem install bundler
+gem install jekyll
+~~~
+
+Navigate to your newly minted git repository and run:
+
+~~~shell
+jekyll new .
+~~~
+
+Then make a `GemFile` with no extension with the following content:
+
+~~~
+source 'https://rubygems.org'
+gem 'github-pages'
+~~~
+
+Now run the following:
+
+~~~shell
+bundle install
+gem update
+~~~
+
+Now lets try compiling using the Jekyll gem:
+
+~~~shell
+bundle exec jekyll serve
+~~~
+
+Jekyll should compile the site without any errors.  If you get any errors, [go here][google]
+
+Lets now try and add livereload to the project, shamelessly cribbed from [here][nvbn]
+
+Create a `gulpfile.js` with the following content:
+
+~~~js
+var gulp = require('gulp');
+var shell = require('gulp-shell');
+var browserSync = require('browser-sync').create();
+
+// Task for building blog when something changed:
+gulp.task('build', shell.task(['bundle exec jekyll build --watch']));
+// Or if you don't use bundle:
+// gulp.task('build', shell.task(['jekyll build --watch']));
+
+// Task for serving blog with Browsersync
+gulp.task('serve', function () {
+    browserSync.init({server: {baseDir: '_site/'}});
+    // Reloads page when some of the already built files changed:
+    gulp.watch('_site/**/*.*').on('change', browserSync.reload);
+});
+
+gulp.task('default', ['build', 'serve']);
+~~~
+
+Now run the following from your repository (use any defaults when asked)
+
+~~~shell
+npm init
+npm install -g gulp
+npm install --save-dev gulp-shell lodash gulp browser-sync
+~~~
+
+Now edit `_config.yml` and add the following statement to the bottom to prevent any watch issues:
+
+~~~
+exclude: [node_modules, gulpfile.js]
+~~~
+
+Lastly, run `gulp`
+
+~~~
+gulp
+~~~
+
+[nvbn]: https://nvbn.github.io/2015/06/19/jekyll-browsersync/
+[google]:http://lmgtfy.com/
+[choco]: https://chocolatey.org/
