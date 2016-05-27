@@ -30,8 +30,8 @@ REG_KEYS = [
 Now relaunch the administrative prompt, goto `C:\tools\DevKit2` and run:
 
 ~~~shell
-run ruby dk.rb init
-run ruby dk.rb install
+ruby dk.rb init
+ruby dk.rb install
 ~~~
 
 Now relaunch the administrative prompt and run:
