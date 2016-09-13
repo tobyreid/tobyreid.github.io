@@ -3,6 +3,7 @@ layout: post
 title:  "Setting up Jekyll on Windows with BrowserSync"
 date:   2016-05-23 10:06:18 +0100
 summary:    Straight to the point - you need Jekyll for all your static site needs. I've written a quick guide to get up and running fast.
+minutes: 10
 ---
 
 I assume you have [Chocolately Nuget][choco] installed on your machine.
