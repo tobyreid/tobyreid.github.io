@@ -6,6 +6,6 @@ tags: about
 ---
 
 
-I am the Chief Architect at <a href="https://www.trurating.com">trurating.com</a>.
+I am Chief Architect at <a href="https://www.trurating.com">trurating.com</a>, and professional internet nerd!
 
-Follow me on <a href="https://twitter.com/reidtoby">Twitter</a>.
+Follow me on <a href="https://twitter.com/tobymcreid">Twitter</a>.
