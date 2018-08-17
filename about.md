@@ -6,6 +6,6 @@ tags: about
 ---
 
 
-I am Chief Architect at <a href="https://www.trurating.com">trurating.com</a>, and professional internet nerd!
+I'm CTO at <a href="https://www.croudconnect.com">croudconnect.com</a>, and professional internet nerd!
 
 Follow me on <a href="https://twitter.com/tobymcreid">Twitter</a>.
