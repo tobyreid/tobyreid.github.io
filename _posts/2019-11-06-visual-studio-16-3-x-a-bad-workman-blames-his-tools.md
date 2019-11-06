@@ -2,7 +2,7 @@
 layout: post
 title: Visual Studio 16.3.x - A bad workman blames his tools?
 date: 2019-11-06 00:00:00 +0000
-summary: Nothing like moving the goalposts when your in the middle of something
+summary: Nothing like the goalposts moving when you're in the middle of something
 minutes: 2
 
 ---
