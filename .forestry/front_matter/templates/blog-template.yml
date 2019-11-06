@@ -21,3 +21,5 @@ fields:
 - type: number
   name: minutes
   label: minutes
+pages:
+- _posts/visual-studio-16-3-x-a-bad-workman-blames-his-tools.md
