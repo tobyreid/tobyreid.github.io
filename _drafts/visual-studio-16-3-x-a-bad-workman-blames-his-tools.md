@@ -24,14 +24,14 @@ I finally figured out that one of the major changes to Visual Studio 16.3.x was 
 
 My fix included adding a `global.json` file to the folder containing my `.sln` file containing the following:
 
-```
-    {
-      "sdk": {
-        "version": "2.2.402"
-      }
-    }
-```
+        {
+          "sdk": {
+            "version": "2.2.402"
+          }
+        }
 
 I also had to ensure that a `functions.deps.json` file is copied as a PostBuildEvent / AfterPublish Target to retain explicit references to dependencies when the functions project in a linux Docker container:
 
 [https://github.com/Azure/azure-functions-host/issues/3568#issuecomment-544901620](https://github.com/Azure/azure-functions-host/issues/3568#issuecomment-544901620)
+
+Moral of the story - if you've changed nothing,  something in your environment has changed!
