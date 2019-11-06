@@ -35,4 +35,4 @@ I also had to ensure that a `functions.deps.json` file is copied as a PostBuildE
 
 [https://github.com/Azure/azure-functions-host/issues/3568#issuecomment-544901620](https://github.com/Azure/azure-functions-host/issues/3568#issuecomment-544901620)
 
-Moral of the story - if you've changed nothing,  something in your environment has changed!
+Moral of the story - if you've changed nothing,  something in your environment has changed!🤯
