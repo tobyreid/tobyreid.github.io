@@ -5,6 +5,6 @@ permalink: "/about/"
 tags: about
 
 ---
-I'm CTO at <a href="https://serpico.io">serpico.com</a>, and professional internet nerd!
+I'm CTO at <a href="https://serpico.io">serpico.com</a> and <a href="[https://serpico.io](https://croud.com "https://croud.com")">serpico.com</a>, and professional internet nerd!
 
 Follow me on <a href="https://twitter.com/tobymcreid">Twitter</a>.
