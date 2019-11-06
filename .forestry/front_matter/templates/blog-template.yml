@@ -21,5 +21,3 @@ fields:
 - type: number
   name: minutes
   label: minutes
-pages:
-- _posts/testing-123.md
