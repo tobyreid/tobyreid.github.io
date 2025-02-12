@@ -5,6 +5,22 @@
       3082010A0282010100CF5230A5678962280D288455037063A3E0609A5DA96A77E41946503E2AB188740B9B60B13F1094FA60A5C21CE42E3A82C9EBBEB6663A68C9E64A51C0FD8183D704EB883F83E55FB22BADC76E9F269379EF7772926A8DE4F69E820162339CDF79721B3CC4D6B8FF7914E7AE42886ADB2529F96AC7787279C7A7E5ADBF2C049316B51C9DBC1458493A840227B71703C6ADF5BCFFD82629AE84622D2AE8C31FCBD5FD4008BF02CC33274F8428451A95E9826E0387BA655478C1A62E546D1E448CF9F5744B234DF0A5A0547F805A8DBE5CA563A409DC0DF61F3D5BE67BBD3FBB9FD96792E207DBDBED74E06A87695F8E7EE2DAD3D2A2A43F53039BCB014B9C3ECC0F0203010001
     </small>
   </div>
+  <!-- Include the library. -->
+  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+
+  <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+  <!-- Prepare a container for your calendar. -->
+  <div class="calendar">
+      <!-- Loading stuff -->
+      Loading the data just for you.
+  </div>
+
+  <script>
+      GitHubCalendar(".calendar", "tobyreid");
+      // or enable responsive functionality
+      GitHubCalendar(".calendar", "tobyreid", { responsive: true, global_stats: false });
+  </script>
 </footer>
 {% if site.enable_anchorjs %}<!-- AnchorJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
