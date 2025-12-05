@@ -8,7 +8,7 @@ minutes: 5
 
 If you are managing Infrastructure as Code (IaC) with Terraform, you eventually hit the wall: Secrets.
 
-You need to commit .tfvars files containing database passwords and API keys, but you can't put them in plaintext Git. Tools like git-crypt are perfect for this—they transparently encrypt secrets on commit and decrypt them on checkout.
+It is a golden rule of DevOps: __NEVER commit secrets in cleartext to Git__. However, keeping your secrets version-controlled alongside your infrastructure code is incredibly useful for maintainability. This is achievable with git-crypt. It allows you to safely commit .tfvars files containing database passwords and API keys by transparently encrypting them on commit and decrypting them on checkout.
 
 But if you've ever tried to run git-crypt unlock inside a GitHub Action, you've likely seen this nightmare:
 
@@ -17,7 +17,7 @@ gpg: cannot open '/dev/tty': No such device or address
 error: inappropriate ioctl for device
 ```
 
-I spent hours fighting GPG agents, loopback pinentries, and allow-preset-passphrase configurations only to realize I was doing it wrong.
+I spent hours fighting GPG agents, loopback pinentries, and allow-preset-passphrase configurations. I was working under the mistaken impression that the correct path was to add a GPG collaborator to git-crypt and then load their private key as a GitHub Secret. I eventually realized that treating the CI runner like a human user was exactly the wrong approach.
 
 Here is the robust, crash-proof way to combine git-crypt, Terraform, and GitHub Actions without fighting GPG agents.
 
