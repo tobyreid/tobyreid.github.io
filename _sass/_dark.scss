@@ -1,0 +1,85 @@
+// Dark theme overrides using prefers-color-scheme
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    background-color: #0f1115;
+  }
+
+  p,
+  small,
+  .small,
+  abbr,
+  li,
+  td,
+  th,
+  h1, h2, h3, h4, h5, h6 {
+    color: #e6e6e6;
+  }
+
+  .post-title {
+    color: #e6e6e6 !important;
+  }
+
+  // Links
+  a {
+    color: lighten($link-color, 10%);
+    text-shadow: none;
+    background-image: linear-gradient(to top,
+      rgba(0,0,0,0) 13%,
+      rgba(lighten($link-color, 10%), .6) 13%,
+      rgba(lighten($link-color, 10%), .6) 18%,
+      rgba(0,0,0,0) 17%
+    );
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    color: lighten($link-hover-color, 10%);
+    text-shadow: none;
+    background-image: linear-gradient(to top,
+      rgba(0,0,0,0) 13%,
+      rgba(lighten($link-hover-color, 10%), .6) 13%,
+      rgba(lighten($link-hover-color, 10%), .6) 17%,
+      rgba(0,0,0,0) 17%
+    );
+  }
+
+  // Code blocks
+  pre,
+  code,
+  .highlight {
+    background-color: #151821;
+    color: #d7dce2;
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  // Tables
+  table {
+    color: #e6e6e6;
+    border-color: rgba(255,255,255,0.12);
+  }
+  td, th {
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  // Footer
+  footer {
+    background-color: #0f1115;
+    color: #b0b6bf;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  // Blockquotes
+  blockquote {
+    color: #cbd1d8;
+    border-left-color: rgba(255,255,255,0.12);
+  }
+
+  // Horizontal rules
+  hr {
+    border-color: rgba(255,255,255,0.12);
+  }
+}
