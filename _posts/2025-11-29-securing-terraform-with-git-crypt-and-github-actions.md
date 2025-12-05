@@ -154,6 +154,8 @@ We will implement a "Plan/Apply" workflow using GitHub Environments.
 
 This uses git-crypt to unlock the repo using the Base64 key we stored.
 
+{% raw %}
+
 ```yaml
 name: Infrastructure Deploy
 run-name: "${{ inputs.component_path }}: ${{ inputs.action }} on ${{ inputs.environment }}"
@@ -225,6 +227,7 @@ jobs:
       - name: Run Apply
         run: ./tf.sh ${{ inputs.component_path }} apply ${{ inputs.environment }}
 ```
+{% endraw %}
 
 ## Bonus: Manual Approvals without GitHub Enterprise
 
