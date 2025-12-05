@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Securing Terraform with git-crypt and GitHub Actions
+title: Securing Terraform secrets with git-crypt and GitHub Actions
 date: 2025-11-29 00:00:00 +0000
 summary: "How to bypass GPG agent errors in GitHub Actions by using git-crypt symmetric keys."
 minutes: 5
