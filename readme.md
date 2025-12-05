@@ -54,3 +54,26 @@ Open: `http://localhost:4000/`
 ## Deploy
 
 This is a GitHub Pages site. Push to `master` triggers deployment.
+
+## Custom Domain & Config
+
+- Custom domain: the file `CNAME` contains `www.tobyreid.co.uk`. GitHub Pages uses this to serve the site at that domain. Ensure your DNS has a CNAME record pointing `www.tobyreid.co.uk` to `tobyreid.github.io`.
+- Site URL: `_config.yml` sets `url: "https://tobyreid.github.io"` and `baseurl: ""`. For canonical links at the custom domain, you can change `url` to `https://www.tobyreid.co.uk`.
+- Sitemap & pagination: `_config.yml` enables `jekyll-sitemap` and `jekyll-paginate`.
+- Analytics: both Universal Analytics (`UA-7044546-3`) and GA4 (`G-8HCDXG3B96`) IDs are present. Avoid enabling GTM simultaneously to prevent double-counting.
+- Comments: Disqus shortname is `tobyreid`; comments render when enabled in layouts. Facebook comments are disabled.
+- Social: usernames for GitHub, Twitter, LinkedIn are configured in `_config.yml`.
+- Internationalization: Open Graph locale is set to `en_GB`.
+
+### DNS Quick Reference
+- `www` CNAME → `tobyreid.github.io`
+- Optionally add `@` A records to GitHub Pages IPs if you plan to support apex domain (without `www`). GitHub recommends configuring this via the Pages settings using `ALIAS/ANAME` or A records to their IPs.
+
+### GitHub Pages Settings
+- In the repository Settings → Pages: set source to `master` (or `main`) branch, root.
+- Add the custom domain `www.tobyreid.co.uk` and enable HTTPS.
+
+## Novel/Important Customizations
+- Theme: Pixyll, with a custom dark theme enabled via `prefers-color-scheme` (`_sass/_dark.scss` and imported from `css/pixyll.scss`).
+- Performance/Build: Sass compiled by Jekyll (`sass.compressed: true`).
+- Content features: anchors, related posts, social icons, and animations are configurable via flags in `_config.yml`.
