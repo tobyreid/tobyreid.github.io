@@ -33,7 +33,7 @@ First, ensure you have git-crypt installed locally (e.g., brew install git-crypt
 - Windows
 
 1. install gpg4win https://gpg4win.org/download.html
-2. install git-crypt and add to your PATH - https://github.com/AGWA/git-crypt/releases
+2. install git-crypt and add to your PATH - https://github.com/AGWA/git-crypt/releases/tag/0.7.0releases
 
 - MacOS
 
