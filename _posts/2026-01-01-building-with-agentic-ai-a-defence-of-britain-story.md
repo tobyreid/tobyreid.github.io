@@ -26,6 +26,25 @@ The second goal was to keep it _cheap_. I didn't want to pay for expensive hosti
 
 The third and final goal was to deliberately work _with_ agentic AI (GitHub Copilot) rather than against it - letting it move fast on implementation, while using my own experience to spot wrong turns early and swerve away from dead‑ends.
 
+## Context matters
+
+One thing that made GitHub Copilot genuinely useful (rather than just fast) was giving it the right context up front.
+
+Instead of treating the frontend, backend, and infrastructure as separate worlds, I created a single VS Code workspace that included:
+
+- the frontend repo
+- the backend repo
+- the Terraform repo
+
+Then I added two kinds of "guidance" that an agent can actually use:
+
+- GitHub Copilot instruction files to set expectations and guardrails (what good looks like, what to avoid, how we structure code)
+- extensive `README.md` files that explain intent - constraints, non-goals, how to run things locally, and why the architecture looks the way it does
+
+That meant Copilot spent less time guessing and more time executing - and when it suggested something questionable, it was usually obvious why it didn't fit the stated intent.
+
+The other practical reality is token length: Copilot only has a finite context window, and it's surprisingly easy to blow it by pasting logs, huge files, or repeating the same background in every prompt. Being deliberate about context helped - keeping instruction files short, keeping READMEs focused on intent (not walls of prose), and asking the agent to summarize before moving on so the "working set" stayed relevant.
+
 That "cheap + timeboxed" combination influenced the shape of the architecture: a static-ish frontend with serverless endpoints is perfect for hobby projects where you want to pay little (or nothing) when nobody's using it.
 
 The finished system is split into two parts:
