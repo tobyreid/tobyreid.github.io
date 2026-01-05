@@ -51,7 +51,7 @@ The main value of having this automated was speed and safety: I could make chang
 
 Separately (in another repository), I keep the infrastructure definition in Terraform and deploy it via its own pipeline. That pipeline provisions and updates the Azure resources the app needs (and keeps the "cheap to run" goal honest).
 
-That infra repo also contains secrets, but not in plaintext: I use `git-crypt` so encrypted `.tfvars` can live alongside the Terraform code. I wrote up the approach in [this post](/2025-11-29-securing-terraform-secrets-with-git-crypt-and-github-actions).
+That infra repo also contains secrets, but not in plaintext: I use `git-crypt` so encrypted `.tfvars` can live alongside the Terraform code. I wrote up the approach in [this post]({% post_url 2025-11-29-securing-terraform-secrets-with-git-crypt-and-github-actions %}).
 
 Splitting "app deploy" and "infra deploy" kept responsibilities clear:
 
