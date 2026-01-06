@@ -104,7 +104,7 @@ I'm particularly happy with the way this turned out:
 
 ![](/uploads/2026/01/01/Screenshot 2026-01-06 085211.png)
 
-## Night 1: get the map working, then make it usable
+## Phase 1: get the map working, then make it usable
 
 The first commits were classic "get to something you can see" work:
 
@@ -130,7 +130,7 @@ On the backend, the API repo started with the Azure Functions isolated worker ho
 - Clustering markers to keep the map fast.
 - Serving icons/assets out of the KMZ so markers could use the correct imagery.
 
-## Night 2: turning a map into a product: structure and deep links
+## Phase 2: turning a map into a product: structure and deep links
 
 Once the basics worked, the next wave was about _stability and predictability_.
 
@@ -166,7 +166,7 @@ The About page landed around here too, establishing:
 
 Under the hood, I treated composables as the seam between "map SDK world" and "Vue world". That made it much easier to reason about problems like: "what closes the drawer?", "what disables Follow?", and "what state belongs in the URL?".
 
-## Night 3: search and "map feel" polish
+## Phase 3: search and "map feel" polish
 
 With map browsing and selection stable, the focus shifted to _finding_ places and making the map feel good under your fingers.
 
@@ -197,7 +197,7 @@ To support those UX flows, the API surface became clearer:
 
 This phase is where everything started feeling like a real app rather than a prototype.
 
-## Night 4: what GitHub Copilot and I built together: PWA + BFF + production hardening
+## Phase 4: what GitHub Copilot and I built together: PWA + BFF + production hardening
 
 This is the most collaborative chapter.
 
