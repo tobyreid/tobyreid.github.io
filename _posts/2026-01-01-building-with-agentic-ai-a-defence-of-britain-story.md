@@ -45,6 +45,29 @@ That meant Copilot spent less time guessing and more time executing - and when i
 
 The other practical reality is token length: Copilot only has a finite context window, and it's surprisingly easy to blow it by pasting logs, huge files, or repeating the same background in every prompt. Being deliberate about context helped - keeping instruction files short, keeping READMEs focused on intent (not walls of prose), and asking the agent to summarize before moving on so the "working set" stayed relevant.
 
+## The Copilot development feedback loop (practically)
+
+Once the repos and guidance were in place, the main thing that made Copilot feel "agentic" was the feedback loop: give it _exactly_ the right slice of context, ask for a concrete change, let it execute, then review and iterate.
+
+In practice, the most reliable ways I found to steer it were:
+
+- **Add specific files to the conversation context**. If you're asking about a particular behaviour, include the relevant files rather than describing them. In VS Code that often means opening the file(s) and attaching them to the chat, or explicitly referencing them in the prompt (e.g. "update `useSelection.ts` and `MapPage.vue` to…").
+- **Highlight the exact lines you care about**. If there's a bug in a handler or a weird edge case in a composable, selecting the relevant block and asking "fix this" (or "refactor this") produces much better results than asking at a distance.
+- **Constrain the task to an executable unit of work**. I had the best results when the request was something like: "add a new endpoint", "make this state deep-linkable", or "change the proxy to buffer upstream responses" - rather than a broad "improve the architecture".
+
+With Copilot in **Agent mode**, the loop gets tighter again because it can do the mechanical steps for you:
+
+- open and inspect files across the workspace
+- search for usage and refactor consistently
+- run commands (tests, builds, linters) to validate changes
+- apply edits directly, then show diffs for review
+
+That doesn't remove the need for judgment - it just moves your time from typing to reviewing. The trick is to treat the agent like a fast junior engineer: be very specific about what "done" looks like, and keep the working set small enough that you can meaningfully review what it changed.
+
+One more practical workflow detail: I enabled **auto-approval for certain non-destructive actions** (things like read-only file inspection/search, or other operations that don't modify code). It helps maintain flow, but it comes with an obvious trade-off: if the agent is allowed to execute tools automatically, you should stay alert.
+
+This matters even more if you connect the agent to external tooling via **MCP servers** (Model Context Protocol). MCP is powerful, but it effectively extends the agent's reach. Only connect to MCP servers you trust, understand what capabilities they expose, and be cautious about granting broad permissions - especially anything that can write files, run shell commands, or access secrets.
+
 That "cheap + timeboxed" combination influenced the shape of the architecture: a static-ish frontend with serverless endpoints is perfect for hobby projects where you want to pay little (or nothing) when nobody's using it.
 
 The finished system is split into two parts:
