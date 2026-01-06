@@ -3,10 +3,10 @@ layout: post
 title: Building with agentic AI, a Defence of Britain story
 date: 2026-01-01 00:00:00 +0000
 summary: "Building Defence of Britain: a map-first web app (from file-new-project to a functioning app)"
-minutes: 10
+minutes: 15
 ---
 
-TL;DR - Try the app here: [https://defence.tobyreid.co.uk](https://defence.tobyreid.co.uk)
+>TL;DR - Try the app here: [https://defence.tobyreid.co.uk](https://defence.tobyreid.co.uk). If the app is slow on first load, it's because hosting is FREE!
 
 Back in Dec/Jan 2020 I built the first version of **Defence of Britain**: a hobby app that read the publicly available [Pillbox Study Group KMZ](http://www.pillbox-study-group.org.uk/links/downloads/) and put it on a map. It worked, but I was never truly happy with it - and at the time I didn't know of any other hobby projects doing the same thing.
 
@@ -229,7 +229,7 @@ By today, the app includes:
 - **BFF proxy** so the backend domain isn't exposed client-side
 - **PWA support** with an install UX that respects real browser behaviour
 
-## Lessons learned
+## Dev Lessons learned
 
 - Map apps live or die by **interaction quality** (clustering and pan/zoom polish mattered as much as "having data").
 - Refactoring early into composables prevented the UI from collapsing under its own weight.
@@ -238,5 +238,13 @@ By today, the app includes:
 - Instrumentation beats guesswork: a tiny bit of diagnostics saved hours of blind iteration.
 - When you introduce proxying/BFF layers, test them in the real deployment runtime - **streaming vs buffering** can matter.
 - If you render third-party HTML, treat it as hostile by default and sanitize aggressively.
+
+## Closing Thoughts on AI
+
+One of the biggest takeaways from this experience is that leveraging agentic AI to build apps can lead to a very goal-shaped codebase. Most of what gets produced is tightly coupled to the original problem, and there isn’t a large chunk you can easily lift out into a reusable library.
+
+That said, I think this is as much the fault of the operator (me) as it is of the agent. If I’d guided the AI with reusability in mind from the start, the project code would likely look different and be more applicable to future endeavours.
+
+Still, one genuinely reusable piece did fall out of it: a Nuxt 4-compatible Application Insights module that works both in the browser and server-side in Nitro. You can take a look at that here: [https://www.npmjs.com/package/nuxt-otel-appinsights](https://www.npmjs.com/package/nuxt-otel-appinsights)
 
 If you want to see where this ended up, the app is live at [https://defence.tobyreid.co.uk](https://defence.tobyreid.co.uk).
