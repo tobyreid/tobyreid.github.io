@@ -77,6 +77,10 @@ Splitting "app deploy" and "infra deploy" kept responsibilities clear:
 - the app pipeline ships code
 - the infra pipeline manages the underlying Azure resources
 
+I'm particularly happy with the way this turned out:
+
+![](/uploads/2026/01/01/Screenshot 2026-01-06 085211.png)
+
 ## Night 1: get the map working, then make it usable
 
 The first commits were classic "get to something you can see" work:
@@ -229,7 +233,7 @@ By today, the app includes:
 - **BFF proxy** so the backend domain isn't exposed client-side
 - **PWA support** with an install UX that respects real browser behaviour
 
-## Dev Lessons learned
+## Dev lessons learned
 
 - Map apps live or die by **interaction quality** (clustering and pan/zoom polish mattered as much as "having data").
 - Refactoring early into composables prevented the UI from collapsing under its own weight.
@@ -239,7 +243,7 @@ By today, the app includes:
 - When you introduce proxying/BFF layers, test them in the real deployment runtime - **streaming vs buffering** can matter.
 - If you render third-party HTML, treat it as hostile by default and sanitize aggressively.
 
-## Closing Thoughts on AI
+## Closing thoughts on AI
 
 One of the biggest takeaways from this experience is that leveraging agentic AI to build apps can lead to a very goal-shaped codebase. Most of what gets produced is tightly coupled to the original problem, and there isn’t a large chunk you can easily lift out into a reusable library.
 
