@@ -70,9 +70,11 @@ This matters even more if you connect the agent to external tooling via **MCP se
 
 That "cheap + timeboxed" combination influenced the shape of the architecture: a static-ish frontend with serverless endpoints is perfect for hobby projects where you want to pay little (or nothing) when nobody's using it.
 
+One concrete decision fell out of that cost constraint: I originally started with Google Maps, but I swapped it out for **Leaflet + OpenStreetMap** tiles to keep running costs predictable (and close to zero). The trade-off is that you lose some of the nice-to-have polish like **custom map colours**.
+
 The finished system is split into two parts:
 
-- **UI**: Nuxt 4 + Vue 3 + TypeScript + Vuetify, rendering a Google Map and a details drawer.
+- **UI**: Nuxt 4 + Vue 3 + TypeScript + Vuetify, rendering a Leaflet map with OpenStreetMap tiles and a details drawer.
 - **API**: Azure Functions (isolated worker, .NET 8) that reads a KMZ dataset, clusters points for map performance, and serves embedded icon/assets.
 
 From the start, I wanted the UI to feel like a native map app: fast pan/zoom, meaningful clusters, reliable selection, deep links, and mobile-friendly controls.
@@ -109,7 +111,7 @@ I'm particularly happy with the way this turned out:
 The first commits were classic "get to something you can see" work:
 
 - Nuxt/Vuetify scaffold, the initial map page, and early CI wiring.
-- A quick return to "**basic map working again**" - the app could render a Google Map and place markers.
+- A quick return to "**basic map working again**" - the app could render a Leaflet map (OpenStreetMap tiles) and place markers.
 
 Once the map existed, UX improvements landed rapidly:
 
