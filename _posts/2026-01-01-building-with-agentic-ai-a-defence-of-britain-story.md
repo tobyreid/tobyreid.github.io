@@ -45,9 +45,36 @@ That meant Copilot spent less time guessing and more time executing - and when i
 
 The other practical reality is token length: Copilot only has a finite context window, and it's surprisingly easy to blow it by pasting logs, huge files, or repeating the same background in every prompt. Being deliberate about context helped - keeping instruction files short, keeping READMEs focused on intent (not walls of prose), and asking the agent to summarize before moving on so the "working set" stayed relevant.
 
+## Beyond ad hoc prompting: making Copilot stateful in-repo
+
+Over time, I moved beyond one-off prompts and formalised how AI is used inside active repositories.
+
+In each core repo, I now maintain structured **Copilot Instructions** that define:
+
+- the purpose of the repository
+- architecture and key entry points
+- guardrails (for example: do not break API contracts, always return responses)
+- the target product end-state
+- API structure and domain-modelling expectations
+- build, test coverage, and security constraints
+- any lint / coding style / standards
+
+The practical effect is simple: Copilot gets persistent architectural context _before_ it writes or modifies code.
+
+In addition, I have also directed Copilot to keep an append-only **Copilot conversation log** in each repo. Whenever meaningful AI-assisted changes are made, I ensure the AI captures:
+
+- the driving prompt (paraphrased)
+- what changed (files/areas)
+- key decisions and assumptions
+- open follow-ups
+
+That gives continuity across sessions and forces later prompts to account for prior decisions, instead of treating each chat as a fresh start.
+
+In effect, this turns AI from a stateless assistant into a context-aware collaborator embedded inside the repository. I'm starting to see more people talk about this as the next real advantage in extracting maximum yield from agentic tooling, and I'm pleased I put that in place early.
+
 ## The Copilot development feedback loop (practically)
 
-Once the repos and guidance were in place, the main thing that made Copilot feel "agentic" was the feedback loop: give it _exactly_ the right slice of context, ask for a concrete change, let it execute, then review and iterate.
+Once the repos, guidance, and logs were in place, the main thing that made Copilot feel "agentic" was the feedback loop: give it _exactly_ the right slice of context, ask for a concrete change, let it execute, then review and iterate.
 
 In practice, the most reliable ways I found to steer it were:
 
@@ -177,12 +204,6 @@ On the UI side:
 - **POI search** work expanded significantly.
 - Gesture and interaction polish landed: improved drag behaviour, handling fast "fling" interactions, and smoothing jank.
 - Selection UX improved again: **pin history**, and allowing deliberate de-selection.
-
-This was also where I leaned into the idea of it feeling like an app:
-
-- smoother gesture handling
-- less jank when dragging
-- better behaviour when you "fling" the map around
 
 On the API side, search became a first-class feature:
 
