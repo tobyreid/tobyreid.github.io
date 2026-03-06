@@ -272,7 +272,7 @@ By today, the app includes:
 - **Deep-linking** so a URL can represent selection/state
 - **Next/previous navigation** through markers
 - **POI search** (plus relevance improvements server-side)
-- **Locate / Follow** with heading/orientation support
+- **Locate ~~/ Follow~~** ~~with heading/orientation support~~ (disabled with the removal of GMaps)
 - **Share + open in Google Maps**
 - **About page** with attribution, disclaimer, and dataset summary
 - **Optional telemetry** via Application Insights
