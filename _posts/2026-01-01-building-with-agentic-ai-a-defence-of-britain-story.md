@@ -291,10 +291,19 @@ By today, the app includes:
 
 ## Closing thoughts on AI
 
-One of the biggest takeaways from this experience is that leveraging agentic AI to build apps can lead to a very goal-shaped codebase. Most of what gets produced is tightly coupled to the original problem, and there isn’t a large chunk you can easily lift out into a reusable library.
+The biggest takeaway from this project is that agentic AI is most valuable when you treat it as an engineering system, not just a smarter autocomplete. The quality jump didn't come from "better prompts" alone - it came from constraints, architecture context, and a disciplined review loop.
 
-That said, I think this is as much the fault of the operator (me) as it is of the agent. If I’d guided the AI with reusability in mind from the start, the project code would likely look different and be more applicable to future endeavours.
+AI-assisted code tends to be highly goal-shaped. Most output is tightly coupled to the immediate problem, which is excellent for shipping quickly but less great for reuse unless you intentionally design for it. That's partly a model characteristic, but mostly an operator responsibility. If I'd biased the workflow toward reusable boundaries earlier, more of the resulting code would likely have generalised.
 
-Still, one genuinely reusable piece did fall out of it: a Nuxt 4-compatible Application Insights module that works both in the browser and server-side in Nitro. You can take a look at that here: [https://www.npmjs.com/package/nuxt-otel-appinsights](https://www.npmjs.com/package/nuxt-otel-appinsights)
+The practical model that worked for me was simple:
 
-If you want to see where this ended up, the app is live at [https://defence.tobyreid.co.uk](https://defence.tobyreid.co.uk).
+- define intent and guardrails up front
+- keep repository context persistent (instructions + append-only decision logs)
+- ask for narrow, testable units of change
+- review like a senior engineer, not a passive approver
+
+Used that way, Copilot stops being a stateless "answer engine" and starts acting more like a context-aware collaborator that can accelerate delivery without eroding technical judgment.
+
+One genuinely reusable piece did fall out of this work: a Nuxt 4-compatible Application Insights module that works in both browser and Nitro server contexts: [https://www.npmjs.com/package/nuxt-otel-appinsights](https://www.npmjs.com/package/nuxt-otel-appinsights)
+
+If you want to see where all this landed in practice, the app is live at [https://defence.tobyreid.co.uk](https://defence.tobyreid.co.uk).
