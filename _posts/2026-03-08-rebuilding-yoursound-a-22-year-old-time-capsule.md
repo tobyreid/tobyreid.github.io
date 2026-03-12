@@ -12,7 +12,8 @@ tags:
 minutes: 15
 ---
 
->TL;DR - Try the app here: [https://yoursound.tobyreid.co.uk](https://yoursound.tobyreid.co.uk).
+>TL;DR - Try the app here: [https://yoursound.tobyreid.co.uk](https://yoursound.tobyreid.co.uk).  
+>Note - The AzuraCast implmentation isn't finished yet! I will update this post when I've completed it.
 
 I have been rebuilding YourSound, a web radio site I originally completed in 2004 as a final-year university dissertation project. Looking back through the source has been a reminder that it was far more than a student brochure site. It was a working Classic ASP application with authentication, comments, artist bios, scheduled shows, newsletters, track requests, queue and play statistics, and a surprisingly direct relationship with a shoutcASP and Shoutcast radio backend. This post is partly software archaeology and partly a record of how I have been recreating it in Nuxt and Nitro without losing the character of the original.
 
