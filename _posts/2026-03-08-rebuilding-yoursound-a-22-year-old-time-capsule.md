@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding YourSound: revisiting a 2004 dissertation-era web radio project"
-date: 2026-03-11
-description: "A look back at YourSound, a 2004 final-year university project that combined Classic ASP, Access, shoutcASP, SHOUTcast and Winamp control, and how I am recreating it with Nuxt, Nitro and AzuraCast."
+date: 2026-03-08
+summary: "A look back at YourSound, a 2004 final-year university project that combined Classic ASP, Access, shoutcASP, SHOUTcast and Winamp control, and how I am recreating it with Nuxt, Nitro and AzuraCast."
 tags:
   - classic-asp
   - nuxt
